@@ -1,2 +1,2 @@
 # LinkNest
-LadingPage - LinkNest - AULA COMERCIO ELETRONICO IFPR
+LandingPage - LinkNest - AULA COMERCIO ELETRONICO IFPR
