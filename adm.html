@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Painel Administrativo - LinkNest</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Painel Administrativo</h1>
+      </header>
+
+      <section id="usuarios" class="signup">
+        <h2>Usuários Cadastrados</h2>
+        <table>
+          <thead>
+            <tr >
+              <th>Nome</th>
+              <th>E-mail</th>
+            </tr>
+          </thead>
+          <tbody id="usuarios-lista"></tbody>
+        </table>
+      </section>
+
+      <section id="testemunhos" class="signup">
+        <form class="signup-form" id="testemunho-form">
+          <h2>Cadastrar Testemunho</h2>
+          <input type="text" id="nome-testemunho" placeholder="Nome Cliente e Cargo" required />
+          <input
+            type="text"
+            id="texto-testemunho"
+            placeholder="Mensagem de Testemunho"
+            required
+          />
+          <button type="submit" class="btn-action">Cadastrar</button>
+        </form>
+      </section>
+
+      <section id="cliente-lista" class="signup">
+        <h3>Avaliações Cadastradas</h3>
+        <table>
+          <thead>
+            <tr >
+              <th>Cliente</th>
+              <th>Mensagem</th>
+            </tr>
+          </thead>
+          <tbody id="testemunhos-lista"></tbody>
+        </table>
+      </section>
+        
+      <footer>
+        <button class="btn-action" onclick="window.location.href='index.html'">
+          Voltar ao Site
+        </button>
+      </footer>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+        import {
+          getFirestore,
+          collection,
+          addDoc,
+          getDocs,
+        } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
+      
+        const firebaseConfig = {
+          apiKey: "AIzaSyCn0uW14_X2eROlgInbPD0zlD3C0RFHWbc",
+          authDomain: "linknest-21298.firebaseapp.com",
+          projectId: "linknest-21298",
+          storageBucket: "linknest-21298.appspot.com",
+          messagingSenderId: "977436483194",
+          appId: "1:977436483194:web:8229731cebd2c1b33b25c3",
+          measurementId: "G-CKB0GTWHER",
+        };
+      
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+      
+        async function loadUsuarios() {
+          const usuariosLista = document.getElementById("usuarios-lista");
+          const querySnapshot = await getDocs(collection(db, "usuarios"));
+          querySnapshot.forEach((doc) => {
+            const data = doc.data();
+            const row = document.createElement("tr");
+            row.innerHTML = `<td>${data.nome}</td><td>${data.email}</td>`;
+            usuariosLista.appendChild(row);
+          });
+        }
+      
+        document
+          .getElementById("testemunho-form")
+          .addEventListener("submit", async function (e) {
+            e.preventDefault();
+      
+            const nomeTestemunho = document.getElementById("nome-testemunho").value;
+            const textoTestemunho = document.getElementById("texto-testemunho").value;
+      
+            try {
+              await addDoc(collection(db, "avaliacoes"), { nomeTestemunho, textoTestemunho });
+              alert("Cadastro realizado!");
+              document.getElementById("testemunho-form").reset();
+              loadCliente(); 
+            } catch (error) {
+              alert("Erro ao cadastrar. Detalhes: " + error.message);
+            }
+          });
+      
+        function scrollToForm() {
+          document
+            .getElementById("testemunhos")
+            .scrollIntoView({ behavior: "smooth" });
+        }
+      
+        async function loadCliente() {
+          const clienteLista = document.getElementById("testemunhos-lista");
+          clienteLista.innerHTML = ''; 
+          const querySnapshot = await getDocs(collection(db, "avaliacoes"));
+          querySnapshot.forEach((doc) => {
+            const data = doc.data();
+            const row = document.createElement("tr");
+            row.innerHTML = `<td>${data.nomeTestemunho}</td><td>${data.textoTestemunho}</td>`;
+            clienteLista.appendChild(row);
+          });
+        }
+      
+        loadCliente();
+        loadUsuarios();
+      </script>
+      
+  </body>
+</html>

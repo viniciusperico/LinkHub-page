@@ -1,106 +1,162 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LinkNest - Centralize Seus Links</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="assets/css/styles.css" />
     <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <!-- Cabeçalho -->
-        <header>
-            <h1>LinkNest</h1>
-            <p>Centralize seus links em um só lugar e compartilhe de forma prática!</p>
-        </header>
-        
-        <!-- Seção Hero -->
-        <section class="hero">
-            <div class="cta">
-                <h2>Crie links personalizados de forma fácil e rápida</h2>
-                <p>Conecte todas as suas redes, portfólio e mais com um único link.</p>
-                <button class="btn-action" onclick="window.location.href='https://wa.me/5543998151440'">Adquira Agora</button>
-            </div>
-            <img src="image\produto.png" alt="Imagem de destaque do produto" class="hero-image">
-        </section>
-        
-        <!-- Benefícios -->
-        <section class="benefits">
-            <h2>Por que escolher o LinkNest?</h2>
-            <ul>
-                <li><strong>Centralize Tudo:</strong> Um link para todas as suas redes.</li>
-                <li><strong>Personalição Total:</strong> Crie links customizados.</li>
-                <li><strong>Simples de Utilizar:</strong> Cadastre-se e comece já!</li>
-            </ul>
-        </section>
+      <header>
+        <h1>LinkNest</h1>
+        <p>
+          Centralize seus links em um só lugar e compartilhe de forma prática!
+        </p>
+      </header>
 
-        <!-- Prova de Valor -->
-        <section class="testimonials">
-            <h2>O que dizem nossos usuários</h2>
-            <blockquote>
-                <p>“Com o LinkNest, consegui centralizar todas as minhas redes em um link só. Prático e essencial!”</p>
-                <footer>— João Silva, Influencer</footer>
-            </blockquote>
-        </section>
-        
-        <!-- Formulário de Inscrição -->
-        <section id="signup" class="signup">
-            <h2>Cadastre-se e receba as novidades!</h2>
-            <form class="signup-form" id="signup-form">
-                <input type="text" id="nome" placeholder="Seu nome" required>
-                <input type="email" id="email" placeholder="Seu e-mail" required>
-                <button type="submit" class="btn-action">Enviar</button>
-            </form>
-        </section>
-        
-        <!-- Rodapé -->
-        <footer>
-            <p>&copy; 2024 LinkNest. Todos os direitos reservados.</p>
-            <button class="btn-action" onclick="window.location.href='https://wa.me/5543998151440'">Adquira Agora</button>
-        </footer>
+      <section class="hero">
+        <div class="cta">
+          <h2>Crie links personalizados de forma fácil e rápida</h2>
+          <p>
+            Conecte todas as suas redes, portfólio e mais com um único link.
+          </p>
+          <button
+            class="btn-action"
+            onclick="window.location.href='https://wa.me/5543998151440'"
+          >
+            Adquira Agora
+          </button>
+        </div>
+        <img
+          src="assets/image/produto.png"
+          alt="Imagem de destaque do produto"
+          class="hero-image"
+        />
+      </section>
+
+      <section class="benefits">
+        <h2>Por que escolher o LinkNest?</h2>
+        <ul>
+          <li>
+            <strong>Centralize Tudo:</strong> Um link para todas as suas redes.
+          </li>
+          <li><strong>Personalição Total:</strong> Crie links customizados.</li>
+          <li>
+            <strong>Simples de Utilizar:</strong> Cadastre-se e comece já!
+          </li>
+        </ul>
+      </section>
+
+      <section id="cliente-lista" class="signup">
+        <h3>Avaliações Cadastradas</h3>
+        <table>
+          <thead>
+            <tr >
+              <th>Cliente</th>
+              <th>Mensagem</th>
+            </tr>
+          </thead>
+          <tbody id="testemunhos-lista"></tbody>
+        </table>
+      </section>
+     <!--
+      <section class="testimonials">
+        <h2>O que dizem nossos usuários</h2>
+        <blockquote>
+          
+        </blockquote>
+
+        <blockquote>
+            <p>
+              “Com o LinkNest, consegui centralizar todas as minhas redes em um
+              link só. Prático e essencial!”
+            </p>
+            <footer>— João Silva, Influencer</footer>
+          </blockquote>
+      </section>
+     
+     --> 
+
+      <section id="signup" class="signup">
+        <h2>Cadastre-se e receba as novidades!</h2>
+        <form class="signup-form" id="signup-form">
+          <input type="text" id="nome" placeholder="Seu nome" required />
+          <input type="email" id="email" placeholder="Seu e-mail" required />
+          <button type="submit" class="btn-action">Enviar</button>
+        </form>
+      </section>
+
+      <footer>
+        <p>&copy; 2024 LinkNest. Todos os direitos reservados.</p>
+        <button
+          class="btn-action"
+          onclick="window.location.href='https://wa.me/5543998151440'"
+        >
+          Adquira Agora
+        </button>
+        <a href="adm.html">
+          <img
+            src="https://img.icons8.com/?size=100&id=F3EeBAdBwjRf&format=png&color=000000"
+            class="adm"
+          />
+        </a>
+      </footer>
     </div>
 
-    <!-- Firebase e JavaScript -->
     <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
-        
-        const firebaseConfig = {
-            apiKey: "AIzaSyCn0uW14_X2eROlgInbPD0zlD3C0RFHWbc",
-            authDomain: "linknest-21298.firebaseapp.com",
-            projectId: "linknest-21298",
-            storageBucket: "linknest-21298.appspot.com",
-            messagingSenderId: "977436483194",
-            appId: "1:977436483194:web:8229731cebd2c1b33b25c3",
-            measurementId: "G-CKB0GTWHER"
-        };
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+      import {
+        getFirestore,
+        collection,
+        addDoc,
+      } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
 
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-        const db = getFirestore(app);
+      const firebaseConfig = {
+        apiKey: "AIzaSyCn0uW14_X2eROlgInbPD0zlD3C0RFHWbc",
+        authDomain: "linknest-21298.firebaseapp.com",
+        projectId: "linknest-21298",
+        storageBucket: "linknest-21298.appspot.com",
+        messagingSenderId: "977436483194",
+        appId: "1:977436483194:web:8229731cebd2c1b33b25c3",
+        measurementId: "G-CKB0GTWHER",
+      };
 
-        document.getElementById('signup-form').addEventListener('submit', async function(e) {
-            e.preventDefault();
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      const db = getFirestore(app);
 
-            const nome = document.getElementById('nome').value;
-            const email = document.getElementById('email').value;
+      document
+        .getElementById("signup-form")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
 
-            try {
-                await addDoc(collection(db, 'usuarios'), { nome, email });
-                alert('Cadastro realizado com sucesso!');
-                document.getElementById('signup-form').reset();
-            } catch (error) {
-                alert('Erro ao cadastrar. Detalhes: ' + error.message);
-            }
+          const nome = document.getElementById("nome").value;
+          const email = document.getElementById("email").value;
+
+          try {
+            await addDoc(collection(db, "usuarios"), { nome, email });
+            alert("Cadastro realizado com sucesso!");
+            document.getElementById("signup-form").reset();
+          } catch (error) {
+            alert("Erro ao cadastrar. Detalhes: " + error.message);
+          }
         });
 
-        function scrollToForm() {
-            document.getElementById('signup').scrollIntoView({ behavior: 'smooth' });
-        }
+      function scrollToForm() {
+        document
+          .getElementById("signup")
+          .scrollIntoView({ behavior: "smooth" });
+      }
+
+  
+
     </script>
-</body>
+
+
+  </body>
 </html>
