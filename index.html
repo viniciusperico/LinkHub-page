@@ -1,113 +1,187 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LinkHub - Centralize Seus Links</title>
-    <link rel="stylesheet" href="assets/css/styles.css" />
-    <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js"></script>
+    <title>LinkHub - Central de Links</title>
+    <link rel="stylesheet" href="pag2.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div class="container">
-      <header>
-        <h1>LinkHub</h1>
-        <p>
-          Centralize seus links em um só lugar e compartilhe de forma prática!
-        </p>
-      </header>
-
-      <section class="hero">
-        <div class="cta">
-          <h2>Crie links personalizados de forma fácil e rápida</h2>
-          <p>
-            Conecte todas as suas redes, portfólio e mais com um único link.
-          </p>
-          <button
-            class="btn-action"
-            onclick="window.location.href='https://wa.me/5543998151440'"
-          >
-            Adquira Agora
-          </button>
-        </div>
-        <img
-          src="assets/image/produto.png"
-          alt="Imagem de destaque do produto"
-          class="hero-image"
-        />
-      </section>
-
-      <section class="benefits">
-        <h2>Por que escolher o LinkHub?</h2>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container">
+        <h1 class="logo">LinkHub</h1>
         <ul>
-          <li><strong>Navegação Inteligente:</strong> Sistema sugere links e conteúdos com base nos mais acessados .</li>
-          <li><strong>Links Agendados:</strong> Agende links para serem enviados ou compartilhados em horários específicos.</li>
-          <li><strong>Enquetes e Votações:</strong> Crie enquetes interativas para coletar feedback de forma fácil.</li>
-          <li><strong>Links com Senha:</strong> Proteja conteúdos exclusivos com links que exigem senha para acesso.</li>
-          <li><strong>Botões Chamativos "Compre Agora":</strong> Botões de ação que incentivam a compra com destaque visual.</li>
-          <li><strong>Tela de Avisos:</strong> Exiba notificações e avisos importantes.</li>
-          <li><strong>Personalização em Lista ou Carrossel:</strong> Organize conteúdos com listas ou carrosséis interativos.</li>
-          <li><strong>Variedade de Cores e Personalização:</strong> Escolha entre diferentes paletas de cores para criar uma experiência visual personalizada.</li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#recursos">Recursos</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li>
+            <a
+              href="#comprar"
+              class="btn-main"
+              onclick="window.location.href='https://wa.me/5543998151440'"
+              >Compre Agora</a
+            >
+          </li>
         </ul>
-        
-      </section>
+      </div>
+    </nav>
 
-      <section id="cliente-lista" class="signup">
-        <h3>Avaliações Cadastradas</h3>
-       <!--<table>
-          <thead>
-            <tr >
-              <th>Cliente</th>
-              <th>Mensagem</th>
-            </tr>
-          </thead>
-          <tbody id="testemunhos-lista"></tbody>
-        </table>-->
-      </section>
-     <!--
-      <section class="testimonials">
-        <h2>O que dizem nossos usuários</h2>
-        <blockquote>
-          
-        </blockquote>
+    <!-- Hero Section -->
+    <header class="hero">
+      <div class="container">
+        <h1>
+          Centralize seus links em um só lugar e compartilhe de forma prática!
+        </h1>
+        <p>
+          Crie links personalizados de forma fácil e rápida. <br />
+          Conecte todas as suas redes, portfólio e mais com um único link.
+        </p>
+        <br />
+        <a
+          href="#comprar"
+          class="btn-hero"
+          onclick="window.location.href='https://wa.me/5543998151440'"
+          >Comece Agora</a
+        >
+      </div>
+    </header>
 
-        <blockquote>
+    <!-- Sobre o Produto -->
+    <section id="sobre" class="section">
+      <div class="container">
+        <h2>Sobre o LinkHub</h2>
+        <p>
+          LinkHub é a plataforma ideal para concentrar e organizar todos os seus
+          links em um só lugar. Com LinkHub, você aumenta a visibilidade das
+          suas páginas e facilita o acesso aos seus conteúdos em redes sociais e
+          outros sites.
+        </p>
+      </div>
+    </section>
+
+    <!-- Recursos -->
+    <section id="recursos" class="section section-dark">
+      <div class="container">
+        <h2>Recursos do LinkHub</h2>
+        <div class="features">
+          <div class="feature">
+            <h3>Navegação Inteligente</h3>
+            <p>Sistema sugere links e conteúdos com base nos mais acessados.</p>
+          </div>
+
+          <div class="feature">
+            <h3>Links Agendados</h3>
             <p>
-              “Com o LinkNest, consegui centralizar todas as minhas redes em um
-              link só. Prático e essencial!”
+              Agende links para serem enviados ou compartilhados em horários
+              específicos.
             </p>
-            <footer>— João Silva, Influencer</footer>
-          </blockquote>
-      </section>
-     
-     --> 
+          </div>
 
-      <section id="signup" class="signup">
+          <div class="feature">
+            <h3>Enquetes e Votações</h3>
+            <p>
+              Crie enquetes interativas para coletar feedback de forma fácil.
+            </p>
+          </div>
+
+          <div class="feature">
+            <h3>Links com Senha</h3>
+            <p>
+              Proteja conteúdos exclusivos com links que exigem senha para
+              acesso.
+            </p>
+          </div>
+
+          <div class="feature">
+            <h3>Botões Chamativos "Compre Agora"</h3>
+            <p>Botões de ação que incentivam a compra com destaque visual.</p>
+          </div>
+
+          <div class="feature">
+            <h3>Tela de Avisos</h3>
+            <p>Exiba notificações e avisos importantes.</p>
+          </div>
+
+          <div class="feature">
+            <h3>Personalização em Lista ou Carrossel</h3>
+            <p>Organize conteúdos com listas ou carrosséis interativos.</p>
+          </div>
+
+          <div class="feature">
+            <h3>Variedade de Cores e Personalização</h3>
+            <p>
+              Escolha entre diferentes paletas de cores para criar uma
+              experiência visual personalizada.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section id="depoimentos" class="section">
+      <div class="container">
+        <h2>O que nossos clientes dizem</h2>
+        <div class="testimonials">
+          <div class="testimonial">
+            <p></p>
+            <span></span>
+          </div>
+          <div class="testimonial">
+            <p></p>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Email-->
+    <section id="signup" class="signup">
+      <div class="container">
         <h2>Cadastre-se e receba novidades!</h2>
         <form class="signup-form" id="signup-form">
           <input type="text" id="nome" placeholder="Seu nome" required />
           <input type="email" id="email" placeholder="Seu e-mail" required />
           <button type="submit" class="btn-action">Enviar</button>
         </form>
-      </section>
+      </div>
+    </section>
 
-      <footer>
-        <p>&copy; 2024 LinkHub. Todos os direitos reservados.</p>
-        <button
-          class="btn-action"
+    <!-- Call to Action -->
+    <section id="comprar" class="section section-cta">
+      <div class="container">
+        <h2>Pronto para otimizar sua presença online?</h2>
+        <p>
+          Adquira o LinkHub e tenha todos os seus links organizados em um só
+          lugar com elegância e eficiência.
+        </p>
+        <br>
+        <br>
+        <a
+          class="btn-hero"
           onclick="window.location.href='https://wa.me/5543998151440'"
+          >Compre Agora</a
         >
-          Adquira Agora
-        </button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2024 LinkHub - Todos os direitos reservados.</p>
         <a href="adm.html">
           <img
-            src="https://img.icons8.com/?size=100&id=F3EeBAdBwjRf&format=png&color=000000"
+            src="https://img.icons8.com/?size=30&id=F3EeBAdBwjRf&format=png&color=000000"
             class="adm"
           />
         </a>
-      </footer>
-    </div>
+      </div>
+    </footer>
 
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
@@ -154,11 +228,6 @@
           .getElementById("signup")
           .scrollIntoView({ behavior: "smooth" });
       }
-
-  
-
     </script>
-
-
   </body>
 </html>
