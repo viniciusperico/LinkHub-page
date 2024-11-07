@@ -140,6 +140,7 @@ strong {
 .signup {
     padding: 20px;
     text-align: center;
+    
 }
 
 .signup h2 {
@@ -151,6 +152,7 @@ strong {
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 
 .signup-form input[type="text"],
